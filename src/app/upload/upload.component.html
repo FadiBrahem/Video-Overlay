@@ -1,0 +1,70 @@
+<!-- upload.component.html -->
+
+<form (submit)="onSubmit($event)">
+  <div>
+    <label for="video">Upload Video (MP4):</label>
+    <input
+      type="file"
+      id="video"
+      accept="video/mp4"
+      (change)="onFileSelected($event)"
+      required
+    />
+  </div>
+  <div>
+    <label for="nomVideo">Nom de la vidéo:</label>
+    <input
+      type="text"
+      id="nomVideo"
+      [(ngModel)]="nomVideo"
+      name="nomVideo"
+      required
+    />
+  </div>
+  <div>
+    <label for="nombreReps">Nombre de reps:</label>
+    <input
+      type="text"
+      id="nombreReps"
+      [(ngModel)]="nombreReps"
+      name="nombreReps"
+    />
+  </div>
+  <div>
+    <label for="nbCalories">Nb calories:</label>
+    <input
+      type="text"
+      id="nbCalories"
+      [(ngModel)]="nbCalories"
+      name="nbCalories"
+    />
+  </div>
+  <div>
+    <label for="textColor">Text Color:</label>
+    <input
+      type="color"
+      id="textColor"
+      [(ngModel)]="textColor"
+      name="textColor"
+      value="#FFFFFF"
+    />
+  </div>
+  <div>
+    <label for="textSize">Text Size:</label>
+    <input
+      type="number"
+      id="textSize"
+      [(ngModel)]="textSize"
+      name="textSize"
+      min="10"
+      max="100"
+    />
+  </div>
+  <button type="submit" [disabled]="isLoading">Submit</button>
+</form>
+
+<!-- Loading Indicator -->
+<div *ngIf="isLoading">
+  <p>Processing video, please wait...</p>
+  <!-- You can replace this with a spinner component for better UX -->
+</div>
